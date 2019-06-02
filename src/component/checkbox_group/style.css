@@ -1,0 +1,15 @@
+.c_checkbox_group {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+.c_checkbox_group__checkbox {
+  flex: 0 0 auto;
+
+  display: inline-block;
+  padding: 4;
+
+  user-select: none;
+}

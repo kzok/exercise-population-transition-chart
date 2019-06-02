@@ -6,8 +6,11 @@
 
 ## 起動方法
 
-1.  `npm install`を実行
-1.  `npm run start`を実行
+1.  事前に[RESAS](https://opendata.resas-portal.go.jp/)に登録をして API キーを取得します
+1.  `.env`ファイルを作成し`RESAS_API_KEY=<your api key>`を記述します
+    または、環境変数`RESAS_API_KEY`を設定します
+1.  `npm install`を実行し、ビルド環境を構築します
+1.  `npm run start`を実行し、ブラウザで表示できます
 
 ## コマンドラインタスク
 
@@ -18,10 +21,6 @@
 1.  `npm run start`
 
     `webpack-dev-server`を起動します
-
-1.  `npm run test`
-
-    `jest`を watch モードで起動します
 
 1.  `npm run storybook`
 
