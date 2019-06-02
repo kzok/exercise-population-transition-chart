@@ -1,0 +1,88 @@
+{
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-options": "^5.0.11",
+    "@storybook/react": "^5.0.11",
+    "@types/jest": "^24.0.12",
+    "@types/react": "^16.8.19",
+    "@types/react-dom": "^16.8.4",
+    "@types/storybook__addon-actions": "^3.4.2",
+    "@types/storybook__react": "^4.0.1",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "babel-loader": "^8.0.6",
+    "cache-loader": "^3.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-prettier": "^3.0.1",
+    "husky": "^2.2.0",
+    "jest": "^24.7.1",
+    "lint-staged": "^8.1.5",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.17.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^6.0.2",
+    "tslib": "^1.9.3",
+    "typescript": "^3.4.5",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.5.1",
+    "webpack-merge": "^4.2.1"
+  },
+  "scripts": {
+    "build": "webpack-cli -p --mode=production",
+    "start": "webpack-dev-server",
+    "test": "jest --watch",
+    "storybook": "start-storybook -c .storybook",
+    "check": "run-s check:*",
+    "check:jest": "jest --coverage",
+    "check:typescript": "tsc --noEmit --skipLibCheck",
+    "lint": "run-s lint:*",
+    "lint:eslint": "eslint --fix \"src/**/*.ts{,x}\"",
+    "lint:prettier": "prettier --write \"**/*.{js,css,scss,json,md}\""
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": false,
+    "quoteProps": "consistent",
+    "jsxSingleQuote": false,
+    "trailingComma": "all",
+    "bracketSpacing": false,
+    "jsxBracketSameLine": false,
+    "arrowParens": "avoid",
+    "overrides": [
+      {
+        "files": "*.md",
+        "options": {
+          "tabWidth": 4,
+          "printWidth": 80
+        }
+      }
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts{,x}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{js,css,scss,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
